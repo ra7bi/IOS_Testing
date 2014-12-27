@@ -28,6 +28,7 @@
     
     NSString * textToFile = @"This text will saved in Fahad_file.txt";
     NSError * error;
+    
     BOOL correct =[textToFile writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:&error];
     
     if(correct){
