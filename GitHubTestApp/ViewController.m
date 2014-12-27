@@ -26,8 +26,24 @@
     // Add File name to the path
     path =[path stringByAppendingString:@"Fahad_file.txt"];
     
+    NSString * textToFile = @"This text will saved in Fahad_file.txt";
+    NSError * error;
+    BOOL correct =[textToFile writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:&error];
     
-    NSLog(@"Path is %@", path);
+    if(correct){
+        
+        NSLog(@"Text Has Been Saved ");
+    }
+    
+    
+    
+    
+    NSString * restored =[NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:&error];
+    
+    NSLog(@"Text restored is : %@",restored);
+
+
+    //NSLog(@"Path is %@", path);
     
     // Do any additional setup after loading the view, typically from a nib.
 }
